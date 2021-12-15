@@ -46,7 +46,7 @@ function initSliders() {
 
 	// Перечень слайдеров
 	if (document.querySelector('.swiper')) {
-		new Swiper('.swiper', {
+		const rentSlider = new Swiper('.swiper-rent', {
 			// Подключаем модули слайдера
 			// для конкретного случая
 			//modules: [Navigation, Pagination],
@@ -57,6 +57,7 @@ function initSliders() {
 				disableOnInteraction: false,
 			},
 			*/
+			init: false,
 			observer: true,
 			observeParents: true,
 			slidesPerView: 1,
@@ -78,29 +79,29 @@ function initSliders() {
 				nextEl: '.about__more .more__item_next',
 				prevEl: '.about__more .more__item_prev',
 			},
-			/*
 			breakpoints: {
-				320: {
-					slidesPerView: 1,
-					spaceBetween: 0,
+				0: {
+					slidesPerView: 1.1,
+					spaceBetween: 16,
 					autoHeight: true,
 				},
-				768: {
-					slidesPerView: 2,
-					spaceBetween: 20,
-				},
-				992: {
-					slidesPerView: 3,
-					spaceBetween: 20,
-				},
-				1268: {
-					slidesPerView: 4,
-					spaceBetween: 30,
-				},
+				480: {
+					slidesPerView: 1.2,
+					spaceBetween: 40,
+				}
 			},
-			*/
 			on: {
 
+			}
+		});
+
+		if(window.innerWidth <= 768) {
+			rentSlider.init()
+		}
+
+		window.addEventListener("resize", function (e) {
+			if(window.innerWidth <= 768) {
+				rentSlider.init()
 			}
 		});
 	}

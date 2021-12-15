@@ -4,15 +4,12 @@
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 3.2rem;
-        padding-top: 4rem;
 
         @include media('<=tablet') {
             grid-template-columns: repeat(2, 1fr);
-            padding-top: 3.2rem;
         }
         @include media('<=phone') {
             gap: 1.4rem;
-            padding-top: 0rem;
         }
     }
 
@@ -93,14 +90,6 @@
                         margin-bottom: 0.2rem;
                         @include media('<=phone') {
                             margin-bottom: 0;
-                        }
-                    }
-
-                    span {
-                        display: block;
-                        margin: -21px 0 0 10px;
-                        @include media('<=phone') {
-                            margin: -18px 0 0 10px;
                         }
                     }
                 }
