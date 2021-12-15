@@ -1,0 +1,44 @@
+.s-concept {
+    padding-bottom: 0;
+
+    .page-section__info-list {
+        list-style-type: none;
+        counter-reset: item;
+        li {
+            position: relative;
+
+            @include media('<=tablet') {
+                display: flex;
+            }
+            &:before {
+                @extend %text-22;
+
+                counter-increment: item;
+                content: '0' counter(item);
+                position: absolute;
+                left: -16%;
+                top: 50%;
+                transform: translate(0, -50%);
+                color: $color-main;
+
+                @include media('<=tablet') {
+                    display: block;
+                    position: relative;
+                    left: 0;
+                    top: 0;
+                    transform: translate(0);
+                    padding: 0 32px 0 16px;
+                }
+                @include media('<=phone') {
+                    padding: 0 24px 0 0;
+                }
+            }
+        }
+    }
+
+    @include media('<=tablet') {
+        .page-section__column_big {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,156 @@
+.footer {
+    background: $color-main;
+
+    &__body {
+        display: flex;
+        justify-content: space-between;
+        padding: 4rem 0 4.5rem 0;
+        @include media('<=phone') {
+            padding: 3.6rem 0;
+        }
+    }
+
+    .first-column {
+        @include media('<=bigTablet') {
+            margin-right: 4rem;
+        }
+        @include media('<=phone') {
+            margin-right: 0;
+        }
+    }
+    .second-column {
+        margin: 0 2rem;
+
+        @include media('<=bigTablet') {
+            margin: 0 0 4rem 0;
+        }
+    }
+    .third-column {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        @include media('<=bigTablet') {
+            justify-content: flex-end;
+        }
+        @include media('<=phone') {
+            display: flex;
+        }
+    }
+
+    &__logo {
+        display: block;
+        max-width: 16rem;
+        margin-bottom: 1rem;
+        @include media('<=phone') {
+            max-width: 9.1rem;
+            margin-bottom: 2.6rem;
+        }
+    }
+    &__address {
+        @extend %text-20;
+
+        display: block;
+        color: $color-white;
+        margin-bottom: 3rem;
+        @include media('<=bigTablet') {
+            margin-bottom: 4rem;
+        }
+    }
+    &__copyright {
+        @extend %text-14;
+
+        display: block;
+        color: $color-grey;
+        text-transform: uppercase;
+        @include media('<=phone') {
+            margin-bottom: 2.2rem;
+        }
+    }
+    &__contacts {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-width: 32rem;
+        @include media('<=bigTablet') {
+            min-width: 36rem;
+        }
+        @include media('<=phone') {
+            min-width: 0;
+            height: auto;
+            margin-bottom: 2.6rem;
+        }
+        li {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            @include media('<=bigTablet') {
+                &:not(:last-child) {
+                    margin-bottom: 4rem;
+                }
+                @include media('<=phone') {
+                    &:not(:last-child) {
+                        margin-bottom: 1.6rem;
+                    }
+                }
+            }
+            a {
+                @extend %text-20;
+
+                flex: 0 0 16.5rem;
+                white-space: nowrap;
+                color: $color-white;
+                margin-right: 16px;
+                @include media('<=phone') {
+                    flex: 0 0 13.2rem;
+                    font-size: 1.6rem;
+                }
+            }
+            span {
+                @extend %text-14;
+
+                flex: 0 0 auto;
+                color: $color-grey;
+                text-transform: uppercase;
+                @include media('<=phone') {
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+    &__social {
+        @include media('<=bigTablet') {
+            margin-bottom: 4rem;
+        }
+        ul {
+            display: flex;
+        }
+        li {
+            &:not(:last-child) {
+                margin-right: 3em;
+            }
+        }
+    }
+    &__creator {
+        display: flex;
+        align-items: center;
+        @include media('<=bigTablet') {
+            justify-content: flex-end;
+        }
+        @include media('<=phone') {
+            justify-content: flex-start;
+        }
+
+        span {
+            @extend %text-14;
+
+            display: inline-flex;
+            color: $color-grey;
+            text-transform: uppercase;
+            margin-right: 12px;
+        }
+        img {
+            vertical-align: middle;
+        }
+    }
+}
