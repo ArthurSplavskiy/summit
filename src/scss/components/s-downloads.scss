@@ -1,0 +1,27 @@
+.s-downloads {
+    .page-section__body {
+        .page-section__column_big {
+            display: flex;
+            align-items: center;
+    
+            h3 {
+                margin-bottom: 4rem;
+    
+                @include media('<=phone') {
+                    margin-bottom: 2.4rem;
+                }
+            }
+            p {
+                @extend  %text-16;
+            }
+        }
+        .page-section__column_small {
+            @include media('<=tablet') {
+                margin: 0 auto 12.4rem auto;
+            }
+            @include media('<=phone') {
+                margin: 0 auto 3.2rem auto;
+            }
+        }
+    }
+}

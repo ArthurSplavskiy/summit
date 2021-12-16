@@ -1,0 +1,96 @@
+.s-team {
+
+    &__body {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 3.2rem;
+
+        @include media('<=tablet') {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @include media('<=phone') {
+            gap: 1.4rem;
+        }
+    }
+    .person-card {
+        &__image {
+            padding-bottom: 125%;
+
+            margin-bottom: 1.6rem;
+
+            @include media('<=phone') {
+                margin-bottom: 0.8rem;
+            }
+        }
+        &__name {
+            @extend %text-14;
+
+            display: block;
+            margin-bottom: 0.4rem;
+
+            @include media('<=phone') {
+                margin-bottom: 0.8rem;
+            }
+            @include media('>phone') {
+                br {
+                    display: none;
+                }
+            }
+        }
+        &__position {
+            @extend %text-12;
+
+            display: block;
+            margin-bottom: 2rem;
+
+            @include media('<=phone') {
+                margin-bottom: 1.2rem;
+            }
+        }
+        &__contacts {
+            display: flex;
+            flex-direction: column;
+
+            @include media('<=phone') {
+                flex-direction: row;
+            }
+
+            li {
+                @include media('>phone') {
+                    &:not(:last-child) {
+                        margin-bottom: 0.4rem;
+                    }
+                }
+                @include media('<=phone') {
+                    &:not(:last-child) {
+                        margin-right: 0.6rem;
+                    }
+                }
+                
+
+                a {
+                    display: flex;
+                    align-items: center;
+
+                    @include media('<=phone') {
+                        border-radius: 100%;
+                        border: 1px solid $color-light-grey;
+                        padding: 1rem;
+                    }
+                }
+                img {
+                    @include media('>phone') {
+                        margin-right: 0.8rem;
+                    }
+                }
+                span {
+                    @extend %text-16;
+
+                    @include media('<=phone') {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
