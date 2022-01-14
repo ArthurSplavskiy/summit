@@ -1,0 +1,7 @@
+.s-map {
+    height: 64rem;
+
+    @include media('<=tablet') {
+        height: 34rem;
+    }
+}

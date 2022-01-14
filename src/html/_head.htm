@@ -2,8 +2,39 @@
 	<title>@@title</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
-	<link rel="stylesheet" href="css/style.min.css">
-	<link rel="shortcut icon" href="favicon.ico">
-	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="robots" content="noindex, nofollow">
+
+	<meta property="og:title" content="Summit" />
+	<meta property="og:description" content="Бізнес центр" />
+	<meta property="og:image" content="@img/opengraph.jpg"/>
+	<meta property="og:image:width" content="1595"/>
+	<meta property="og:image:height" content="960"/>
+
+	<link type="image/png" sizes="16x16" rel="icon" href="@img/favicon/favicon-16x16.png">
+	<link type="image/png" sizes="32x32" rel="icon" href="@img/favicon/favicon-32x32.png">
+	<link type="image/png" sizes="48x48" rel="icon" href="@img/favicon/favicon-48x48.png">
+	<link sizes="180x180" rel="apple-touch-icon" href="@img/favicon/apple-touch-icon-180x180.png">
+	<link color="#CB0D58" rel="mask-icon" href="@img/favicon/safari-pinned-tab-16x16.svg">
+	<meta name="msapplication-TileColor" content="#CB0D58">
+	<meta name="msapplication-TileImage" content="@img/favicon/mstile-144x144.png">
+	<meta name="application-name" content="Sitename">
+	<meta name="msapplication-config" content="others/browserconfig.xml">
+	<link rel="manifest" href="others/manifest.json">
+	<meta name="theme-color" content="#ffffff">
+	<style>
+		.preloader {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: #1D3C34;
+			z-index: 9999;
+			transition: transform 0.4s ease-in-out;
+		}
+		html.loaded .preloader {
+			transform: translateY(-100%);
+		}
+	</style>
 </head>

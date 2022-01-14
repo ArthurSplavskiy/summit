@@ -1,0 +1,65 @@
+.spollers {
+}
+.spollers__item {
+}
+.spollers__title {
+	@extend %text-22;
+
+	display: flex;
+	align-items: center;
+	width: 100%;
+	cursor: default;
+	text-align: left;
+	border-top: 1px solid $color-white;
+	position: relative;
+	min-height: 4.8rem;
+	padding: 2.4rem 7rem 2.4rem 0;
+
+	@include media('<=tablet') {
+		padding: 2.4rem 5.4rem 2.4rem 0;
+	}
+	@include media('<=phone') {
+		@include media('<=tablet') {
+			padding: 2rem 5.4rem 2rem 0;
+		}
+	}
+
+	._spoller-init & {
+		cursor: pointer;
+		&::after {
+			content: "";
+			position: absolute;
+			right: 0;
+			top: 50%;
+			background: url('../img/icons/spoller-icon.svg');
+			background-position: center;
+			background-size: cover;
+			width: 4.8rem;
+			height: 4.8rem;
+			transform: translate(0, -50%);
+			transition: transform 0.5s ease 0s;
+
+			@include media('<=phone') {
+				width: 3.2rem;
+				height: 3.2rem;
+			}
+		}
+		&._spoller-active {
+			&::after {
+				transform: translate(0, -50%) rotate(45deg);
+			}
+		}
+	}
+}
+.spollers__body {
+	@extend %text-16;
+
+	padding: 3rem 10.4rem 2.4rem 0;
+
+	@include media('<=tablet') {
+		padding: 3rem 5.4rem 2.4rem 0;
+	}
+	@include media('<=phone') {
+		padding: 1rem 0 2.4rem 0;
+	}
+}

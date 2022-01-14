@@ -1,0 +1,244 @@
+html {
+	font-size: 10px;
+	// @include media('>=desktop') {
+	//   font-size: calc(100vw / 1920 * 10);
+	// }
+	@include media('<=laptop') {
+	  font-size: calc(100vw / 1216 * 10);
+	}
+	@include media('<=tablet') {
+	  font-size: calc(100vw / 768 * 10);
+	}
+	@include media('<=phone') {
+	  //font-size: calc(100vw / 480 * 10);
+	  font-size: 10px;
+	}
+}
+  
+body {
+	font-family: $fontFamily;
+	font-weight: 400;
+	background: $color-white;
+	color: $color-main;
+
+	.lock & {
+		overflow: hidden;
+	}
+}
+
+a {
+	color: inherit;
+	outline: none;
+	text-decoration: none;
+}
+
+._container {
+	max-width: 1296px; // 1216
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 4rem;
+
+	@include media('<=phone') {
+		padding: 0 16px;
+	}
+}
+
+._ibg {
+	position: relative;
+	img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+	}
+}
+
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	z-index: z('wrapper');
+}
+
+.page {
+	position: relative;
+	z-index: z('page');
+}
+
+.c-cursor {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 10.4rem;
+	height: 10.4rem;
+	border-radius: 100%;
+	border: 1px solid $color-white;
+	z-index: z('cursor');
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transform: scale(0);
+	pointer-events: none;
+
+	&.above-slider {
+		transform: scale(1) translate(-50%, -50%);
+	}
+
+	@supports ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
+		background: rgba(255, 255, 255, 0.2);
+		backdrop-filter: blur(10px);
+	}
+}
+
+h2 {
+	@extend %text-64;
+}
+h3 {
+	@extend %text-48;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Общий файл элементов форм
+// Для подключения/отключения стилей конкретного єлемента формы смотри base/forms/forms.scss
+// @import "base/forms/forms";
+
+// Стили спойлеров
+// @import "base/spollers";
+
+// Стили табов
+// @import "base/tabs";
+
+// Стили карт
+// @import "base/maps";
+
+// Стили для полноєкранного блока
+// [data-fullscreen] {
+// 	height: 100vh;
+// 	.touch & {
+// 		height: calc(var(--vh, 1vh) * 100);
+// 		@media (max-width: $mobile) {
+// 			transition: height 0.2s;
+// 		}
+// 	}
+// }
+
+// Стили для отзывчивых картинок (IBG)
+// Сниппет (HTML): ibg (div c картинкой и классами)
+// Сниппет (HTML): ibga (a c картинкой и классами)
+// [class*="__image-ibg"] {
+// 	position: relative;
+// 	img {
+// 		position: absolute;
+// 		width: 100%;
+// 		height: 100%;
+// 		top: 0;
+// 		left: 0;
+// 		object-fit: cover;
+// 	}
+// }
+
+// Шаблоны (заготовки)
+// @extend %имя шаблона;
+// Сниппет (SCSS): ex
+
+// Счетчик для списка
+// %listCounter {
+// 	list-style-type: none;
+// 	counter-reset: item;
+// 	li {
+// 		position: relative;
+// 		&:before {
+// 			counter-increment: item;
+// 			content: counter(item);
+// 			position: absolute;
+// 			left: 0;
+// 			top: 0;
+// 		}
+// 	}
+// }
+// Адаптивное видео
+// %responsiveVideo {
+// 	position: relative;
+// 	overflow: hidden;
+// 	height: 0;
+// 	padding-bottom: 56.25%;
+// 	video,
+// 	iframe,
+// 	object,
+// 	embed {
+// 		position: absolute;
+// 		top: 0;
+// 		left: 0;
+// 		width: 100%;
+// 		height: 100%;
+// 	}
+// }
+// Видео в качестве фона
+// %videoBackground {
+// 	video,
+// 	iframe,
+// 	object,
+// 	embed {
+// 		position: fixed;
+// 		top: 50%;
+// 		left: 50%;
+// 		min-width: 100%;
+// 		min-height: 100%;
+// 		width: auto;
+// 		height: auto;
+// 		z-index: -100;
+// 		transform: translateX(-50%) translateY(-50%);
+// 		background-size: cover;
+// 	}
+// }
+// Серый фильтр
+// %grayfilter {
+// 	transition: all 0.3s ease 0s;
+// 	filter: grayscale(1);
+// 	@media (any-hover: hover) {
+// 		&:hover {
+// 			filter: grayscale(0);
+// 		}
+// 	}
+// }
+// Отменить выделение
+// %noselect {
+// 	user-select: none;
+// }
+// // Зеркальное отображение
+// %mirror {
+// 	transform: scale(-1, 1);
+// }
+// // Плавный скролл
+// %smoothscroll {
+// 	-webkit-overflow-scrolling: touch;
+// }
+// // Скрыть скролл
+// %hidescroll {
+// 	&::-webkit-scrollbar {
+// 		display: none;
+// 	}
+// }

@@ -1,0 +1,86 @@
+//<FORM>
+// Снипет (HTML):
+.contacts-form {
+	max-width: 592px;
+	width: 100%;
+}
+.form {
+	
+	&__line {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		column-gap: 2.4rem;
+
+		@include media('<=tablet') {
+			column-gap: 4rem;
+		}
+		@include media('<=phone') {
+			grid-template-columns: 1fr;
+		}
+	}
+	&__item {
+		position: relative;
+	}
+	&__input {
+		margin-bottom: 2.4rem;
+
+		@include media('<phone') {
+			margin-bottom: 1.6rem;
+		}
+	}
+	&__controls {
+		margin-top: 4rem;
+
+		@include media('<phone') {
+			margin-top: 3.2rem;
+		}
+	}
+	&__button {
+		display: flex;
+		justify-content: flex-end;
+		margin-top: 4rem;
+
+		@include media('<phone') {
+			margin-top: 3.2rem;
+		}
+	}
+	&__error {
+		position: absolute;
+		top: 80%;
+		color: $color-error;
+	}
+}
+
+//</FORM>
+
+// <BUTTONS>
+// Снипет (HTML): btn
+@import "button";
+
+// <INPUTS>
+// Снипет (HTML): inp
+@import "input";
+
+// <CHECK>
+// Снипет (HTML): chk
+@import "checkbox";
+
+// <RADIO>
+// Снипет (HTML): opt
+// @import "radio";
+
+// <SELECT>
+// Снипет (HTML): sel
+@import "select";
+
+// <RATING>
+// Снипет (HTML): rating
+// @import "rating";
+
+// <QUANTITY>
+// Снипет (HTML): qa
+// @import "quantity";
+
+// <NOUI-SLIDER>
+// Снипет (HTML):
+// @import "../../libs/nouislider";

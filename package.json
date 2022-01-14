@@ -50,6 +50,8 @@
 		"webpack-stream": "latest"
 	},
 	"dependencies": {
+		"gsap": "file:gsap-bonus.tgz",
+		"gulp-sourcemaps": "^3.0.0",
 		"simplebar": "latest"
 	}
 }

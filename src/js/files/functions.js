@@ -297,13 +297,13 @@ export function spollers() {
 */
 export function tabs() {
 	const tabs = document.querySelectorAll('[data-tabs]');
-	let tabsActiveHash = [];
+	//let tabsActiveHash = [];
 
 	if (tabs.length > 0) {
-		const hash = location.hash.replace('#', '');
-		if (hash.startsWith('tab-')) {
-			tabsActiveHash = hash.replace('tab-', '').split('-');
-		}
+		// const hash = location.hash.replace('#', '');
+		// if (hash.startsWith('tab-')) {
+		// 	tabsActiveHash = hash.replace('tab-', '').split('-');
+		// }
 		tabs.forEach((tabsBlock, index) => {
 			tabsBlock.classList.add('_tab-init');
 			tabsBlock.setAttribute('data-tabs-index', index);
@@ -386,20 +386,20 @@ export function tabs() {
 		const tabsTitles = tabsBlock.querySelectorAll('[data-tabs-titles]>*');
 		const tabsContent = tabsBlock.querySelectorAll('[data-tabs-body]>*');
 		const tabsBlockIndex = tabsBlock.dataset.tabsIndex;
-		const tabsActiveHashBlock = tabsActiveHash[0] == tabsBlockIndex;
+		//const tabsActiveHashBlock = tabsActiveHash[0] == tabsBlockIndex;
 
-		if (tabsActiveHashBlock) {
-			const tabsActiveTitle = tabsBlock.querySelector('[data-tabs-titles]>._tab-active');
-			tabsActiveTitle.classList.remove('_tab-active');
-		}
+		// if (tabsActiveHashBlock) {
+		// 	const tabsActiveTitle = tabsBlock.querySelector('[data-tabs-titles]>._tab-active');
+		// 	tabsActiveTitle.classList.remove('_tab-active');
+		// }
 		if (tabsContent.length > 0) {
 			tabsContent.forEach((tabsContentItem, index) => {
 				tabsTitles[index].setAttribute('data-tabs-title', '');
 				tabsContentItem.setAttribute('data-tabs-item', '');
 
-				if (tabsActiveHashBlock && index == tabsActiveHash[1]) {
-					tabsTitles[index].classList.add('_tab-active');
-				}
+				// if (tabsActiveHashBlock && index == tabsActiveHash[1]) {
+				// 	tabsTitles[index].classList.add('_tab-active');
+				// }
 				tabsContentItem.hidden = !tabsTitles[index].classList.contains('_tab-active');
 			});
 		}
@@ -424,7 +424,7 @@ export function tabs() {
 					} else {
 						tabsContentItem.hidden = false;
 					}
-					location.hash = `tab-${tabsBlockIndex}-${index}`;
+					//location.hash = `tab-${tabsBlockIndex}-${index}`;
 				} else {
 					if (tabsBlockAnimate) {
 						_slideUp(tabsContentItem, tabsBlockAnimate);
@@ -457,15 +457,32 @@ export function tabs() {
 //==== Модуь работы с меню (бургер) =======================================================================================================================================================================================================================
 export function menuOpen() {
 	let iconMenu = document.querySelector(".icon-menu");
+	let headerMenu = document.querySelector('.header__menu');
+
 	if (iconMenu) {
 		iconMenu.addEventListener("click", function (e) {
 			if (bodyLockStatus) {
 				bodyLockToggle();
 				document.documentElement.classList.toggle("menu-open");
-				document.querySelector('.header__menu').classList.toggle("menu-open");
+				headerMenu.classList.toggle("menu-open");
 			}
 		});
 	};
+
+
+	const menuOpenResize = () => {
+		if(window.innerWidth > 768) {
+			if(document.documentElement.classList.contains("menu-open") && headerMenu.classList.contains("menu-open")) {
+				document.documentElement.classList.remove("menu-open");
+				headerMenu.classList.remove("menu-open");
+				bodyUnlock();
+			}
+		}
+	}
+
+	menuOpenResize()
+
+	window.addEventListener('resize', menuOpenResize)
 }
 export function menuClose() {
 	document.documentElement.classList.remove("menu-open");

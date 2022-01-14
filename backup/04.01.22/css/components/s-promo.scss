@@ -1,0 +1,12 @@
+.s-promo {
+    .page-section__column-small {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .page-section__info-list {
+        @include media('>tablet') {
+            margin-bottom: 4rem;
+        }
+    }
+}

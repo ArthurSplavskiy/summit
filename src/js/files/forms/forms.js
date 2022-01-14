@@ -1,12 +1,4 @@
-// Импорт функционала ==============================================================================================================================================================================================================================================================================================================================
-// Вспомогательные функции
-import { isMobile, _slideUp, _slideDown, _slideToggle } from "../functions.js";
-// Модуль попапа
-// import { popupItem } from "../popups.js";
-// Модуль прокрутки к блоку
-// import { gotoBlock } from "../scroll/gotoblock.js";
-//==============================================================================================================================================================================================================================================================================================================================
-
+import { _slideUp, _slideDown, _slideToggle } from "../functions.js";
 /*
 Чтобы поле участвовало в валидации добавляем атрибут data-required
 Особые проверки:
@@ -19,6 +11,29 @@ data-required="email" - вадидация E-mail
 // Работа с полями формы. Добавление классов, работа с placeholder
 export function formFieldsInit() {
 	const formFields = document.querySelectorAll('input[placeholder],textarea[placeholder]');
+	const phoneInputs = document.querySelectorAll('input._phone');
+
+	const setPhoneMask = () => {
+		phoneInputs.forEach(phoneInput => {
+			if (phoneInput) {
+				//'+7(999) 999 9999'
+				//'+38(999) 999 9999'
+				//'+375(99)999-99-99'
+				phoneInput.classList.add('_mask');
+				Inputmask("+380 999 999 999", {
+					//"placeholder": '',
+					clearIncomplete: true,
+					clearMaskOnLostFocus: true,
+					onincomplete: function () {
+						phoneInput.inputmask.remove();
+						phoneInput.value = ''
+					}
+				}).mask(phoneInput);
+			}
+		})
+	}
+	setPhoneMask()
+
 	if (formFields.length) {
 		formFields.forEach(formField => {
 			formField.dataset.placeholder = formField.placeholder;
@@ -35,6 +50,8 @@ export function formFieldsInit() {
 
 			formValidate.removeError(targetElement);
 		}
+
+		setPhoneMask()
 	});
 	document.body.addEventListener("focusout", function (e) {
 		const targetElement = e.target;
@@ -62,6 +79,7 @@ export let formValidate = {
 				if (formRequiredItem.offsetParent !== null) {
 					error += this.validateInput(formRequiredItem);
 				}
+
 			});
 		}
 		return error;
@@ -71,7 +89,11 @@ export let formValidate = {
 		if (formRequiredItem.dataset.required === "email") {
 			formRequiredItem.value = formRequiredItem.value.replace(" ", "");
 			if (this.emailTest(formRequiredItem)) {
-				this.addError(formRequiredItem);
+				if(!formRequiredItem.value) {
+					this.addError(formRequiredItem);
+				} else {
+					this.addUncorrectError(formRequiredItem);
+				}
 				error++;
 			} else {
 				this.removeError(formRequiredItem);
@@ -79,6 +101,16 @@ export let formValidate = {
 		} else if (formRequiredItem.type === "checkbox" && !formRequiredItem.checked) {
 			this.addError(formRequiredItem);
 			error++;
+		} else if (formRequiredItem.dataset.required === "select") {
+			//formRequiredItem.value = formRequiredItem.value.replace(" ", "");
+			let selectDefault = formRequiredItem.querySelector('.select__option[hidden]')
+
+			if(+selectDefault.dataset.value === 1) {
+				this.addError(formRequiredItem);
+				error++;
+			} else {
+				this.removeError(formRequiredItem);
+			}
 		} else {
 			if (!formRequiredItem.value) {
 				this.addError(formRequiredItem);
@@ -94,8 +126,13 @@ export let formValidate = {
 		formRequiredItem.parentElement.classList.add('_error');
 		let inputError = formRequiredItem.parentElement.querySelector('.form__error');
 		if (inputError) formRequiredItem.parentElement.removeChild(inputError);
-		if (formRequiredItem.hasAttribute('data-error') && formRequiredItem.getAttribute('data-error')) {
-			formRequiredItem.parentElement.insertAdjacentHTML('beforeend', '<div class="form__error">' + formRequiredItem.getAttribute('data-error') + '</div>');
+		if (validationUnfillError) {
+			formRequiredItem.parentElement.insertAdjacentHTML('beforeend', '<div class="form__error">' + validationUnfillError + '</div>');
+		}
+	},
+	addUncorrectError(formRequiredItem) {
+		if (validationUncorrectError) {
+			formRequiredItem.parentElement.insertAdjacentHTML('beforeend', '<div class="form__error">' + validationUncorrectError + '</div>');
 		}
 	},
 	removeError(formRequiredItem) {

@@ -1,7 +1,7 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import FileIncludeWebpackPlugin from 'file-include-webpack-plugin-replace';
 import CopyPlugin from "copy-webpack-plugin";
-import TerserPlugin from "terser-webpack-plugin";
+//import TerserPlugin from "terser-webpack-plugin";
 
 import * as path from 'path';
 
@@ -15,13 +15,14 @@ const paths = {
 }
 const config = {
 	mode: "production",
+	devtool: 'source-map',
 	optimization: {
-		minimize: true,
-		minimizer: [new TerserPlugin()],
+		minimize: false, //true
+		//minimizer: [new TerserPlugin()],
 	},
 	output: {
 		path: `${paths.build}`,
-		filename: 'app.min.js',
+		filename: 'main.js', // filename: 'app.min.js',
 		publicPath: '/',
 	},
 	module: {
@@ -41,7 +42,7 @@ const config = {
 						loader: 'css-loader',
 						options: {
 							importLoaders: 0,
-							sourceMap: false,
+							sourceMap: true, // false
 							modules: false,
 							url: {
 								filter: (url, resourcePath) => {
@@ -56,9 +57,10 @@ const config = {
 					{
 						loader: 'sass-loader',
 						options: {
-							sassOptions: {
-								outputStyle: "expanded",
-							},
+							sourceMap: true, // delete
+							// sassOptions: {
+							// 	outputStyle: "expanded",
+							// },
 						}
 					},
 				],

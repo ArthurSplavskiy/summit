@@ -1,0 +1,58 @@
+.tabs {
+	// .tabs__navigation
+	&__navigation {
+		display: flex;
+		border-bottom: 1px solid $color-grey;
+		margin-bottom: 4.8rem;
+	}
+	// .tabs__title
+	&__title {
+		@extend %text-16;
+
+		position: relative;
+		bottom: -1px;
+		color: $color-grey;
+		text-align: center;
+		padding: 2rem 1.6rem;
+		border-bottom: 3px solid transparent;
+		@include media('<=phone') {
+			width: 100%;
+			border-bottom: 1px solid$color-light-grey;
+			margin-bottom: 2.4rem;
+			text-align: left;
+			padding: 2.4rem 0;
+			font-weight: 600;
+
+            &:after{
+				content: '';
+				position: absolute;
+				box-sizing: border-box;
+				right: 0;
+				top: 0;
+				width: 24px;
+				height: 100%;
+				background: url("@img/ar-bt.svg")no-repeat center center;
+				transform: rotate(-180deg);
+				@include tr;
+			}
+        }
+		&._tab-active {
+			color: $color-main;
+			border-color: $color-main;
+
+			@include media('<=phone') {
+				border-color: $color-light-grey;
+			}
+
+			&:after {
+				transform: rotate(0);
+			}
+		}
+	}
+	// .tabs__content
+	&__content {
+	}
+	// .tabs__body
+	&__body {
+	}
+}

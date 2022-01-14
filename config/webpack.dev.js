@@ -25,7 +25,7 @@ const config = {
 	],
 	output: {
 		path: `${paths.build}`,
-		filename: 'js/app.min.js',
+		filename: 'js/main.js',  // app.min.js
 		publicPath: '/'
 	},
 	devServer: {
@@ -33,7 +33,7 @@ const config = {
 		static: paths.build,
 		open: true,
 		compress: true,
-		port: 8080,
+		port: 8081,
 		hot: true,
 		watchFiles: [
 			`${paths.src}/**/*.html`,

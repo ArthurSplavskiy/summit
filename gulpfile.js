@@ -28,16 +28,22 @@ const path = {
 	build: {
 		html: `${projectName}/`,
 		js: `${projectName}/js/`,
+		libs: `${projectName}/libs/`,
 		css: `${projectName}/css/`,
+		scss: `${projectName}/css/scss`,
 		images: `${projectName}/img/`,
 		fonts: `${projectName}/fonts/`,
+		others: `${projectName}/others/`,
 	},
 	src: {
 		html: [`${srcFolder}/**/*.html`, `!${srcFolder}/_*.html`],
 		js: [`${srcFolder}/js/app.js`],
+		libs: [`${srcFolder}/libs/*`],
+		scss: [`${srcFolder}/scss/**/*`],
 		css: `${srcFolder}/scss/style.scss`,
-		images: [`${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp}`, "!**/favicon.*"],
+		images: [`${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp,webm,mp4}`, "!**/favicon.*"],
 		svg: [`${srcFolder}/img/**/*.svg`, "!**/favicon.*"],
+		others: [`${srcFolder}/others/*`],
 		fonts: `${srcFolder}/fonts/*.ttf`,
 	},
 	clean: `./${projectName}/`
@@ -78,9 +84,9 @@ function fontsConverter() {
 		.pipe(dest(path.build.fonts));
 }
 function fontStyle() {
-	let file_content = fs.readFileSync(srcFolder + '/scss/base/fonts.scss');
+	let file_content = fs.readFileSync(srcFolder + '/scss/base/_fonts.scss');
 	if (file_content == '') {
-		fs.writeFile(srcFolder + '/scss/base/fonts.scss', '', cb);
+		fs.writeFile(srcFolder + '/scss/base/_fonts.scss', '', cb);
 		fs.readdir(path.build.fonts, function (err, items) {
 			if (items) {
 				let c_fontname;
@@ -88,7 +94,7 @@ function fontStyle() {
 					let fontname = items[i].split('.');
 					fontname = fontname[0];
 					if (c_fontname !== fontname) {
-						fs.appendFile(srcFolder + '/scss/base/fonts.scss', '@include font("' + fontname + '", "' + fontname + '", "400", "normal");\r\n', cb);
+						fs.appendFile(srcFolder + '/scss/base/_fonts.scss', '@include font("' + fontname + '", "' + fontname + '", "400", "normal");\r\n', cb);
 					}
 					c_fontname = fontname;
 				}
@@ -105,6 +111,22 @@ function webpackBuild() {
 		}))
 		.pipe(dest(path.build.js))
 }
+
+function libs() {
+	return src(path.src.libs, {})
+		.pipe(dest(path.build.libs))
+}
+
+function others() {
+	return src(path.src.others, {})
+		.pipe(dest(path.build.others))
+}
+
+function copyScss() {
+	return src(path.src.scss, {})
+		.pipe(dest(path.build.scss))
+}
+
 // Картинки
 function imagesBuild() {
 	return src(path.src.images)
@@ -162,32 +184,32 @@ function cssBuild() {
 function htmlBuild() {
 	return src(`${projectName}/*.html`, {})
 		.pipe(webphtml())
-		.pipe(version({
-			'value': '%DT%',
-			'replaces': [
-				'#{VERSION_REPlACE}#',
-				[/#{VERSION_REPlACE}#/g, '%TS%']
-			],
-			'append': {
-				'key': '_v',
-				'cover': 0,
-				'to': [
-					'css',
-					['image', '%TS%'],
-					{
-						'type': 'js',
-						'attr': ['src', 'custom-src'], // String or Array, undefined this will use default. css: "href", js: ...
-						'key': '_v',
-						'value': '%DT%',
-						'cover': 1,
-						'files': ['app.min.js'] // Array [{String|Regex}] of explicit files to append to
-					}
-				]
-			},
-			'output': {
-				'file': 'version.json'
-			}
-		}))
+		// .pipe(version({
+		// 	'value': '%DT%',
+		// 	'replaces': [
+		// 		'#{VERSION_REPlACE}#',
+		// 		[/#{VERSION_REPlACE}#/g, '%TS%']
+		// 	],
+		// 	'append': {
+		// 		'key': '_v',
+		// 		'cover': 0,
+		// 		'to': [
+		// 			'css',
+		// 			['image', '%TS%'],
+		// 			{ 
+		// 				'type': 'js',
+		// 				'attr': ['src', 'custom-src'], // String or Array, undefined this will use default. css: "href", js: ...
+		// 				'key': '_v',
+		// 				'value': '%DT%',
+		// 				'cover': 1,
+		// 				'files': ['main.js'] // app.min.js  // Array [{String|Regex}] of explicit files to append to
+		// 			}
+		// 		]
+		// 	},
+		// 	'output': {
+		// 		'file': 'version.json'
+		// 	}
+		// }))
 		.pipe(dest(path.build.html));
 }
 
@@ -228,39 +250,39 @@ function cssNoWebpBuild() {
 // Сборка галпом HTML файлов без webp
 function htmlNoWebpBuild() {
 	return src(`${projectName}/*.html`, {})
-		.pipe(version({
-			'value': '%DT%',
-			'replaces': [
-				'#{VERSION_REPlACE}#',
-				[/#{VERSION_REPlACE}#/g, '%TS%']
-			],
-			'append': {
-				'key': '_v',
-				'cover': 0,
-				'to': [
-					'css',
-					['image', '%TS%'],
-					{
-						'type': 'js',
-						'attr': ['src', 'custom-src'], // String or Array, undefined this will use default. css: "href", js: ...
-						'key': '_v',
-						'value': '%DT%',
-						'cover': 1,
-						'files': ['app.min.js'] // Array [{String|Regex}] of explicit files to append to
-					}
-				]
-			},
-			'output': {
-				'file': 'version.json'
-			}
-		}))
+		// .pipe(version({
+		// 	'value': '%DT%',
+		// 	'replaces': [
+		// 		'#{VERSION_REPlACE}#',
+		// 		[/#{VERSION_REPlACE}#/g, '%TS%']
+		// 	],
+		// 	'append': {
+		// 		'key': '_v',
+		// 		'cover': 0,
+		// 		'to': [
+		// 			'css',
+		// 			['image', '%TS%'],
+		// 			{
+		// 				'type': 'js',
+		// 				'attr': ['src', 'custom-src'], // String or Array, undefined this will use default. css: "href", js: ...
+		// 				'key': '_v',
+		// 				'value': '%DT%',
+		// 				'cover': 1,
+		// 				'files': ['main.js'] // app.min.js // Array [{String|Regex}] of explicit files to append to
+		// 			}
+		// 		]
+		// 	},
+		// 	'output': {
+		// 		'file': 'version.json'
+		// 	}
+		// }))
 		.pipe(dest(path.build.html));
 }
 
 let fontsBuild = gulp.series(fontsConverter, fontStyle);
-let dev = gulp.series(clean, gulp.parallel(addGitIgnore, fontsBuild));
-let build = gulp.series(clean, gulp.parallel(addGitIgnore, fontsBuild, imagesBuild), webpackBuild, cssBuild, htmlBuild);
-let devbuild = gulp.series(clean, gulp.parallel(addGitIgnore, fontsBuild, imagesNoWebpBuild), webpackBuild, cssNoWebpBuild, htmlNoWebpBuild);
+let dev = gulp.series(clean, gulp.parallel(addGitIgnore, fontsBuild, libs, others));
+let build = gulp.series(clean, gulp.parallel(addGitIgnore, fontsBuild, imagesBuild, libs, others, copyScss), webpackBuild, cssBuild, htmlBuild);
+let devbuild = gulp.series(clean, gulp.parallel(addGitIgnore, fontsBuild, imagesNoWebpBuild, libs, others, copyScss), webpackBuild, cssNoWebpBuild, htmlNoWebpBuild);
 
 gulp.task('fonts', fontsBuild);
 gulp.task('default', dev);

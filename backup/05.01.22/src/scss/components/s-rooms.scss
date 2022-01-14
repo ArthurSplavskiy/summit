@@ -1,0 +1,59 @@
+.s-rooms {
+    .swiper-rooms {
+        position: relative;
+        overflow: visible;
+
+        &__cursor-overlay {
+            position: absolute;
+            top: 0;
+            left: calc((100vw - 1212px) / -2);
+            width: 10000vw!important;
+            height: calc(368 / 592) * 100%;
+            background: transparent;
+            z-index: 2;
+
+            @include media('<=laptop') {
+                left: -4rem;
+            }
+        }
+    }
+    .rent-card__image {
+        @include media('<=phone') {
+            padding-bottom: 64%;
+        }
+    }
+    .rent-card__info {
+        div:first-child {
+
+            @include media('<=phone') {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 16px;
+            }
+
+            span {
+                display: block;
+                &:first-child {
+                    margin-bottom: 4px;
+
+                    @include media('<=phone') {
+                        font-size: 1.6rem;
+                        margin: 0;
+                    }
+                }
+                &:last-child {
+                    @extend %text-16;
+                    
+                    color: $color-grey;
+                    margin: 0;
+
+                    @include media('<=phone') {
+                        font-size: 1.4rem;
+                    }
+                }
+            }
+        }
+    }
+}

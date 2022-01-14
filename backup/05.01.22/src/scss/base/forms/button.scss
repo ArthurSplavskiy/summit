@@ -1,0 +1,48 @@
+//<BUTTONS (a.btn+tab)>
+// Снипет (HTML): btn
+
+.button {
+	@extend %text-14;
+	@extend %center;
+
+	text-transform: uppercase;
+	border: 1px solid $color-white;
+	transition: all 0.3s ease;
+	padding: 2.1rem 5.6rem 2.1rem 5.6rem;
+	position: relative;
+	color: $color-white;
+	overflow: hidden;
+
+	span {
+		position: relative;
+		z-index: 2;
+	}
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: -1px;
+		bottom: -1px;
+		right: 0;
+		left: 0;
+		background-color: $color-white;
+		transform-origin: center top;
+		transform: translateZ(0) scaleY(0);
+		transition: transform .3s cubic-bezier(.215,.61,.355,1);
+	}
+
+	@include media('<=phone') {
+		text-align: center;
+		width: 100%;
+	}
+
+	@media(any-hover: hover) {
+		&:hover{
+			color: $color-main;
+			&:before {
+				transform: translateZ(0) scaleY(1);
+				transform-origin: center bottom;
+			}
+		}
+	}
+}

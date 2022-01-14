@@ -1,0 +1,114 @@
+.s-features {
+    position: relative;
+    min-height: 451px;
+    overflow: hidden;
+
+    &__design {
+        position: absolute;
+        bottom: -30%;
+        right: calc((100vw - 1000px) / 2);
+        animation: circleDesign 6s ease-in-out infinite;
+        
+        @keyframes circleDesign {
+            0% {
+                transform: scale(1);
+            }
+            60% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @include media('<=tablet') {
+            max-width: 36.4rem;
+            bottom: -10%;
+            right: 4rem;
+        }
+        @include media('<=phone') {
+            max-width: 28.8rem;
+            bottom: -10%;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+    }
+    .page-section__body {
+        position: relative;
+        z-index: 2;
+    }
+    &__circle {
+        position: relative;
+        width: 42.2rem;
+        height: 42.2rem;
+        border-radius: 100%;
+        border: 1px solid $color-white;
+
+        @include media('<=tablet') {
+            margin: 0 auto;
+        }
+        @include media('<=phone') {
+            width: 28.8rem;
+            height: 28.8rem;
+        }
+
+        div {
+            @extend %absolute-center;
+
+            span {
+                text-align: center;
+                display: block;
+                color: $color-white;
+
+                &:first-child {
+                    @extend %text-14;
+
+                    color: $color-grey;
+                    text-transform: uppercase;
+                    margin-bottom: 16px;
+                }
+                &:nth-child(2) {
+                    @extend %text-48;
+
+                    color: $color-white;
+
+                    @include media('<=phone') {
+                        font-size: 3.2rem;
+                    }
+                }
+            }
+        }
+    }
+    .page-section__column_small {
+        h3 {
+            color: $color-white;
+            margin-bottom: 5.6rem;
+
+            @include media('<=tablet') {
+                text-align: center;
+            }
+            @include media('<=phone') {
+                margin-bottom: 3.2rem;
+            }
+        }
+    }
+
+    .features-list {
+        
+
+        &__item {
+            &:nth-child(1) {
+                grid-column: 1 / -1;
+            }
+            @include media('<=phone') {
+                &:nth-child(4) {
+                    grid-column: 1 / -1;
+                }
+                &:nth-child(5) {
+                    grid-column: 1 / -1;
+                }
+            }
+        }
+    }
+
+}
