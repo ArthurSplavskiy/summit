@@ -26,9 +26,7 @@
             }
         }
         .page-section__description {
-            span {
-                color: $color-white;
-            }
+            color: $color-white;
         }
     }
 
@@ -48,8 +46,6 @@
 	}
 	&__circles {
         margin-bottom: 5.6rem;
-        position: relative;
-        z-index: -1;
 
         @include media('<=tablet') {
             margin-bottom: 3.2rem;
@@ -68,13 +64,11 @@
         }
 	}
 	&__description {
-        span {
-            @extend %text-24;
+        @extend %text-24;
 
-            display: block;
-            text-align: center;
-            color: $color-main;
-        }
+        display: block;
+        text-align: center;
+        color: $color-main;
 	}
 	&__body {
         display: flex;
@@ -177,7 +171,7 @@
             font-size: 3.2rem;
         }
 
-        .format {
+        span {
             @extend %text-22;
 
             @include media('<=phone') {
@@ -669,7 +663,7 @@
     
         // .checkbox__input
         &__input {
-            &:checked + .checkbox__text:before {
+            &:checked + .icon-check {
                 background: $color-main url("@img/icons/check-gn.svg") center no-repeat;
             }
         }

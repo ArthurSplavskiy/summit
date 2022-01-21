@@ -26,7 +26,7 @@ class App {
         ]
         this.rentImages = document.querySelectorAll('.s-rent .rent-card__image') 
         this.pageTitles = document.querySelectorAll('.page-section__title h2')
-        this.pageDescriptions = document.querySelectorAll('.page-section__description span')
+        this.pageDescriptions = document.querySelectorAll('.page-section__description')
         this.pageCircles = document.querySelectorAll('.page-section__circles')
         this.pageElementsCircles = [
             document.querySelector('.page-section__design img'),
@@ -54,8 +54,13 @@ class App {
         const video_mp4 = this.videoElement.querySelector('source[type="video/mp4"]') 
         const video_webm = this.videoElement.querySelector('source[type="video/webm"]') 
 
-        video_mp4.src = video_mp4.dataset.src
-        video_webm.src = video_webm.dataset.src
+        if(video_mp4) {
+            video_mp4.src = video_mp4.dataset.src
+        }
+        if(video_webm) {
+            video_webm.src = video_webm.dataset.src
+        }
+        
         this.videoElement.load()
     }
 
@@ -223,6 +228,26 @@ class App {
             }
             if(!targetElement.closest('.lang-toggle') && document.querySelectorAll('.lang-toggle._hover').length > 0) {
                 removeClasses(document.querySelectorAll('.lang-toggle._hover'), '_hover')
+            }
+        }
+
+        if(targetElement.hasAttribute('data-orenda-title')) {
+            const orendaPopup = document.querySelector('[data-popup="orenda"]')
+            const popupInputHidden = orendaPopup.querySelector('input.orenda-title[type="hidden"]')
+            const cartTitle = targetElement.getAttribute('data-orenda-title')
+
+            if(cartTitle && popupInputHidden) {
+                popupInputHidden.value = cartTitle
+            }
+        }
+
+        if(targetElement.hasAttribute('data-orenda2-title')) {
+            const orendaPopup = document.querySelector('[data-popup="orenda2"]')
+            const popupInputHidden = orendaPopup.querySelector('input.orenda2-title[type="hidden"]')
+            const cartTitle = targetElement.getAttribute('data-orenda2-title')
+
+            if(cartTitle && popupInputHidden) {
+                popupInputHidden.value = cartTitle
             }
         }
     }

@@ -2,8 +2,6 @@ import "../scss/style.scss";
 
 import "./libs/dynamic_adapt.js";
 
-import "./libs/inputmask.min.js";
-
 import * as flsFunctions from "./files/functions.js";
 
 /* Проверка поддержки webp, добавление класса webp или no-webp для HTML */

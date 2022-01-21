@@ -12,9 +12,23 @@
 		height: 0;
 		opacity: 0;
 		visibility: hidden;
-		&:checked + .checkbox__text:before {
-			background: #fff url("@img/icons/check-wt.svg") center no-repeat;
+		// &:checked + .checkbox__text:before {
+		// 	
+		// }
+		&:checked + .icon-check {
+			background: #fff url("../img/icons/check-wt.svg") center no-repeat;
 		}
+	}
+	.icon-check {
+		align-self: flex-start;
+		margin: 0px 14px 0px 0px;
+		flex: 0 0 32px;
+		left: 0;
+		top: 0;
+		width: 32px;
+		height: 32px;
+		background: $color-light2-grey;
+		border-radius: 100%;
 	}
 	// .checkbox__text
 	&__text {
@@ -26,19 +40,13 @@
 		font-size: 16px;
 		color: $color-light2-grey;
 		letter-spacing: -0.3px;
-		line-height: calc(20 / 16);
+		line-height: 1.25;
 		cursor: pointer;
-		&:before {
-			content: "";
-			align-self: flex-start;
-			margin: 0px 14px 0px 0px;
-			flex: 0 0 32px;
-			left: 0;
-			top: 0;
-			width: 32px;
-			height: 32px;
-			background: $color-light2-grey;
-			border-radius: 100%;
+
+		&._error {
+			.icon-check {
+				border: 1px solid #ee1212;
+			}
 		}
 	}
 	a {
@@ -48,13 +56,6 @@
 		@media (any-hover: hover) {
 			&:hover {
 				text-decoration: none;
-			}
-		}
-	}
-	&._error {
-		.checkbox__text {
-			&:before {
-				border: 1px solid #ee1212;
 			}
 		}
 	}

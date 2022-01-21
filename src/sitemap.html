@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('html/_head.htm',{
+		"title":"Summit"
+	})
+	<body>
+        @@include('html/_preloader.htm',{})
+		<div class="wrapper">
+
+			@@include('html/_header.htm',{})
+
+			<main class="page page_sitemap">
+                <div class="content">
+                    <div class="_container">
+                        <ul>
+                            <li>
+                                <a href="index.html" target="_blank" rel="noopener noreferrer">ст. Головна</a>
+                            </li>
+                            <li>
+                                <a href="thanks.html" target="_blank" rel="noopener noreferrer">ст. Дякую</a>
+                            </li>
+                            <li>
+                                <a href="privacy-policy.html" target="_blank" rel="noopener noreferrer">ст. Політики</a>
+                            </li>
+                            <li>
+                                <a href="404.html" target="_blank" rel="noopener noreferrer">ст. 404</a>
+                            </li>
+
+                            <li>
+                                <a href="#" data-hystmodal="[data-popup='myPopupCallback']" rel="noopener noreferrer">попап Колбек</a>
+                            </li>
+                            <li>
+                                <a href="#" data-hystmodal="[data-popup='orenda']" rel="noopener noreferrer">попап Орента - 1</a>
+                            </li>
+                            <li>
+                                <a href="#" data-hystmodal="[data-popup='orenda2-1']" rel="noopener noreferrer">попап Орента - 2</a>
+                            </li>
+                            <li>
+                                <a href="#" data-hystmodal="[data-popup='office-1']" rel="noopener noreferrer">попап Офіс</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+			</main>
+
+            @@include('html/_rend-card-popups.htm',{
+                "id":"1"
+            })
+
+			@@include('html/_footer.htm',{})
+		</div>
+		@@include('html/_popup.htm',{})
+		@@include('html/_js.htm',{})
+	</body>
+</html>

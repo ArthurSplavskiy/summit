@@ -7,7 +7,7 @@
 .hystmodal__shadow{
     position: fixed;
     border:none;
-    display: block;
+    display: none; // block
     width: 100%;
     top: 0;
     bottom: 0;
@@ -89,7 +89,7 @@
     background-color: transparent;
     background-position: center center;
     background-repeat: no-repeat;
-    background-image: url('@img/icons/popup-close.svg');
+    background-image: url('../img/icons/popup-close.svg');
     background-size: 100% 100%;
     border: none;
     font-size: 0;
@@ -100,7 +100,7 @@
     .hystmodal__close{
         top: 18px;
         right: 20px;
-        background-image: url('@img/icons/popup-close.svg');
+        background-image: url('../img/icons/popup-close.svg');
     }
     .hystmodal__window{
         margin: 0;

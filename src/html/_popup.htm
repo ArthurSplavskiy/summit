@@ -1,4 +1,4 @@
-<div class="hystmodal" id="myPopupCallback">
+<div class="hystmodal" data-popup="myPopupCallback">
     <div class="hystmodal__wrap">
         <div class="hystmodal__window" role="dialog" aria-modal="true">
             <button data-hystclose class="hystmodal__close">Закрыть</button>
@@ -82,16 +82,16 @@
 										<div class="form__controls">
 											<div class="form__policy">
 												<div class="checkbox">
-													<input 
-														id="formAgreement1" 
-														checked
-														type="checkbox"
-														name="agreement"
-														class="checkbox__input"
-														data-required
-													>
-													<label for="formAgreement1" class="checkbox__text">
-														<span>ПРИЙМАЮ <a href="#">УМОВИ</a>ОБРОБКИ ПЕРСОНАЛЬНИХ ДАНИХ</span>
+													<label class="checkbox__text">
+														<input
+															checked
+															type="checkbox"
+															name="agreement"
+															class="checkbox__input"
+															data-required
+														>
+														<div class="icon-check"></div>
+														<span>ПРИЙМАЮ <a href="privacy-policy.html">УМОВИ</a>ОБРОБКИ ПЕРСОНАЛЬНИХ ДАНИХ</span>
 													</label>
 												</div>
 											</div>
@@ -116,7 +116,7 @@
     </div>
 </div>
 
-<div class="hystmodal" id="orenda">
+<div class="hystmodal" data-popup="orenda">
 	<div class="hystmodal__wrap">
 		<div class="hystmodal__window" role="dialog" aria-modal="true">
 			<button data-hystclose class="hystmodal__close">Закрыть</button>
@@ -143,95 +143,7 @@
 									<form class="form form_green" action="#" data-message="seccess">
 				  						<div class="form__title">Заповніть форму і ми зв'яжемося з вами найближчим часом</div>
 
-										<div class="form__item">
-											<input
-												class="form__input"
-												type="text"
-												name="name"
-												placeholder="Ваше ім’я/Назва компанії"
-												
-											>
-										</div>
-
-										<div class="form__item">
-											<input
-												class="form__input"
-												
-												
-												type="text"
-												name="email"
-												data-required="email"
-												placeholder="Email"
-											>
-										</div>
-
-										<div class="form__item">
-											<input
-												class="form__input _phone"
-												
-												type="text"
-												name="phone"
-												data-required
-												placeholder="Телефон"
-											>
-										</div>
-
-										<div class="form__controls">
-											<div class="form__policy">
-												<div class="checkbox">
-													<input id="formAgreement2" checked type="checkbox" name="agreement" class="checkbox__input" data-required>
-													<label for="formAgreement2" class="checkbox__text">
-														<span>ПРИЙМАЮ <a href="#">УМОВИ</a>ОБРОБКИ ПЕРСОНАЛЬНИХ ДАНИХ</span>
-													</label>
-												</div>
-											</div>
-											<div class="form__button">
-												<button type="submit" class="button">
-													<span>ВІДПРАВИТИ</span>
-												</button>
-											</div>
-										</div>
-
-									</form>
-								</div>
-
-							</div>
-
-						</div>
-					</div>
-				</div>
-			</div>
-
-		</div>
-	</div>
-</div>
-
-<div class="hystmodal" id="orenda2">
-	<div class="hystmodal__wrap">
-		<div class="hystmodal__window" role="dialog" aria-modal="true">
-			<button data-hystclose class="hystmodal__close">Закрыть</button>
-
-			<div class="modal__wrapper">
-				<div class="modal__content">
-					<div class="_container">
-						<div class="page-section__body">
-
-
-							<div class="modal-col-l page-section__column page-section__column_small">
-								<h4>Замовити зворотній дзвінок</h4>
-
-								<div class="tel__foot">
-
-									<a class="tel__foot-tel" href="tel:+380673511115">+38 067 351 11 15</a>
-									<div class="tel__foot-t">оренда</div>
-
-								</div>
-							</div>
-							<div class="page-section__column page-section__column_big">
-
-								<div class="contacts-form">
-									<form class="form form_green" action="#" data-message="seccess">
-				  						<div class="form__title">Заповніть форму і ми зв'яжемося з вами найближчим часом</div>
+										<input class="orenda-title" type="hidden" name="form_name" value="">
 
 										<div class="form__item">
 											<input
@@ -269,9 +181,10 @@
 										<div class="form__controls">
 											<div class="form__policy">
 												<div class="checkbox">
-													<input id="formAgreement3" checked type="checkbox" name="agreement" class="checkbox__input" data-required>
-													<label for="formAgreement3" class="checkbox__text">
-														<span>ПРИЙМАЮ <a href="#">УМОВИ</a>ОБРОБКИ ПЕРСОНАЛЬНИХ ДАНИХ</span>
+													<label class="checkbox__text">
+														<input checked type="checkbox" name="agreement" class="checkbox__input" data-required>
+														<div class="icon-check"></div>
+														<span>ПРИЙМАЮ <a href="privacy-policy.html">УМОВИ</a>ОБРОБКИ ПЕРСОНАЛЬНИХ ДАНИХ</span>
 													</label>
 												</div>
 											</div>
@@ -296,63 +209,95 @@
 	</div>
 </div>
 
-<div class="hystmodal modal-office" id="office">
-	<div class="hystmodal__wrap">
-		<div class="hystmodal__window" role="dialog" aria-modal="true">
-			<button data-hystclose class="hystmodal__close">Закрыть</button>
+<div class="hystmodal" data-popup="orenda2">
+    <div class="hystmodal__wrap">
+        <div class="hystmodal__window" role="dialog" aria-modal="true">
+            <button data-hystclose class="hystmodal__close">Закрыть</button>
 
-			<div class="modal__wrapper">
-				<div class="modal__content">
-					<div class="_container">
+            <div class="modal__wrapper">
+                <div class="modal__content">
+                    <div class="_container">
+                        <div class="page-section__body">
 
-						<div class="modal__head">
-							<h3>Офісне приміщення</h3>
-							<span>20 тис. грн/міс.</span>
-						</div>
-						
-						<div class="modal__body">
-							<div class="modal__slider">
-								<div class="modal__swiper">
-									<div class="modal__slide _ibg">
-										<img src="@img/rent/1.png" alt="Summit">
-									</div>
-									<div class="modal__slide _ibg">
-										<img src="@img/rent/1.png" alt="Summit">
-									</div>
-									<div class="modal__slide _ibg">
-										<img src="@img/rent/1.png" alt="Summit">
-									</div>
-								</div>
-								<div class="modal__slider-controls">
-									<div class="modal__slider-arrow-prev">
-										<img src="@img/icons/swiper-arrow-wt.svg" alt="Summit">
-									</div>
-									<div class="modal__slider-arrow-next">
-										<img src="@img/icons/swiper-arrow-wt.svg" alt="Summit">
-									</div>
-								</div>
-								<div class="modal__slider-pagination"></div>
-							</div>
-							<div class="modal__text">
-								<p>
-									ЗАЛ-ТРАНСФОРМЕР, Великий моторизований екран, 2 професійні плазмові панелі 70’’.
-									Бизнес центр расположен в Киеве — самом экологичном районе с развитой инфраструктурой,
-									высокой транспортной доступностью и престижным окружением. В бизнес центре предлагается
-									всего 40 офисных помещений с зимними садами и 4 конференц зала с террасами и зимними садами.
-								</p>
-								<p>
-									ЗАЛ-ТРАНСФОРМЕР, Великий моторизований екран, 2 професійні плазмові панелі 70’’
-								</p>
-								<div class="modal__text-footer">
-									<a class="page-button" href="#" data-hystmodal="#orenda2">ОРЕНДУВАТИ ОФІС</a>
-								</div>
-							</div>
-						</div>
 
-					</div>
-				</div>
-			</div>
+                            <div class="modal-col-l page-section__column page-section__column_small">
+                                <h4>Замовити зворотній дзвінок</h4>
 
-		</div>
-	</div>
+                                <div class="tel__foot">
+
+                                    <a class="tel__foot-tel" href="tel:+380673511115">+38 067 351 11 15</a>
+                                    <div class="tel__foot-t">оренда</div>
+
+                                </div>
+                            </div>
+                            <div class="page-section__column page-section__column_big">
+
+                                <div class="contacts-form">
+                                    <form class="form form_green" action="#" data-message="seccess">
+                                        <div class="form__title">Заповніть форму і ми зв'яжемося з вами найближчим часом</div>
+
+										<input class="orenda2-title" type="hidden" name="form_name" value="">
+
+                                        <div class="form__item">
+                                            <input
+                                                class="form__input"
+                                                type="text"
+                                                name="name"
+                                                placeholder="Ваше ім’я/Назва компанії"
+                                                
+                                            >
+                                        </div>
+
+                                        <div class="form__item">
+                                            <input
+                                                class="form__input"
+                                                
+                                                
+                                                type="text"
+                                                name="email"
+                                                data-required="email"
+                                                placeholder="Email"
+                                            >
+                                        </div>
+
+                                        <div class="form__item">
+                                            <input
+                                                class="form__input _phone"
+                                                
+                                                type="text"
+                                                name="phone"
+                                                data-required
+                                                placeholder="Телефон"
+                                            >
+                                        </div>
+
+                                        <div class="form__controls">
+                                            <div class="form__policy">
+                                                <div class="checkbox">
+                                                    <label class="checkbox__text">
+                                                        <input checked type="checkbox" name="agreement" class="checkbox__input" data-required>
+                                                        <div class="icon-check"></div>
+                                                        <span>ПРИЙМАЮ <a href="privacy-policy.html">УМОВИ</a>ОБРОБКИ ПЕРСОНАЛЬНИХ ДАНИХ</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="form__button">
+                                                <button type="submit" class="button">
+                                                    <span>ВІДПРАВИТИ</span>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>

@@ -39,7 +39,7 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			background: url("@img/icons/select.svg") center no-repeat;
+			background: url("../img/icons/select.svg") center no-repeat;
 			position: relative;
 
 			._select-open & {
@@ -116,16 +116,6 @@
 	// Состояния селекта
 	&._select-open {
 		z-index: 5;
-	}
-	&._select-disabled {
-	}
-	&._select-active {
-	}
-	&._select-focus {
-	}
-	&._select-multiple {
-	}
-	&._select-checkbox {
 	}
 }
 

@@ -1,4 +1,11 @@
 .s-partners {
+    position: relative;
+    z-index: -1;
+
+    .page-section__circles {
+        position: relative;
+        z-index: -1;
+    }
     .swiper-partners {
         position: relative;
 

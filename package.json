@@ -1,8 +1,8 @@
 {
-	"name": "fls-start",
-	"version": "1.0.0",
+	"name": "bundle-start",
+	"version": "3.0.0",
 	"description": "Start template with Gulp and Webpack",
-	"author": "FLS",
+	"author": "Arthur Splavskiy",
 	"private": true,
 	"license": "GNU General Public License (GPL)",
 	"type": "module",
@@ -28,30 +28,19 @@
 		"gulp-ttf2woff": "latest",
 		"gulp-ttf2woff2": "latest",
 		"gulp-uglify-es": "latest",
-		"gulp-version-number": "latest",
 		"gulp-webp-html-nosvg": "latest",
 		"gulp-webpcss": "latest",
 		"imagemin-webp": "latest",
 		"mini-css-extract-plugin": "latest",
-		"nouislider": "latest",
 		"sass": "latest",
 		"sass-loader": "latest",
 		"string-replace-loader": "^3.1.0",
 		"style-loader": "latest",
-		"swiper": "latest",
-		"terser-webpack-plugin": "latest",
-		"tippy.js": "latest",
 		"transform-runtime": "0.0.0",
-		"vanilla-lazyload": "latest",
 		"webp-converter": "2.2.3",
 		"webpack": "latest",
 		"webpack-cli": "latest",
 		"webpack-dev-server": "latest",
 		"webpack-stream": "latest"
-	},
-	"dependencies": {
-		"gsap": "file:gsap-bonus.tgz",
-		"gulp-sourcemaps": "^3.0.0",
-		"simplebar": "latest"
 	}
 }

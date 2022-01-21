@@ -1,9 +1,8 @@
-import Swiper, { Navigation, Pagination, Scrollbar } from 'swiper';
+//import Swiper, { Navigation, Pagination, Scrollbar } from 'swiper';
 import gsap from 'gsap'
 
 // Стили Swiper
 // Базовые стили
-import "../../scss/base/_swiper.scss";
 // Полный набор стилей из scss/libs/swiper.scss
 //import "../../scss/libs/swiper.scss";
 // Полный набор стилей из node_modules
@@ -127,7 +126,7 @@ function initSliders() {
 		*/
 		if(document.querySelector('.swiper-image')) {
 			const imageSlider = new Swiper('.swiper-image', {
-				modules: [Navigation],
+				//modules: [Navigation],
 				observer: true,
 				observeParents: true,
 				slidesPerView: 1,
@@ -176,14 +175,13 @@ function initSliders() {
 				observeParents: true,
 				slidesPerView: 1,
 				spaceBetween: 16,
-				autoHeight: true,
+				//autoHeight: true,
 				speed: 800,
 				grabCursor: true,
 				breakpoints: {
 					0: {
 						slidesPerView: 1.1,
 						spaceBetween: 16,
-						autoHeight: true,
 					},
 					480: {
 						slidesPerView: 1.1,
@@ -198,6 +196,11 @@ function initSliders() {
 			roomsSlider.on('touchMove', (e) => cursorHandler(e))
 			roomsSlider.on('touchStart', () => sliderTouchStart())
 			roomsSlider.on('touchEnd', () => sliderTouchEnd())
+
+			// window.addEventListener('resize', () => {
+			// 	roomsSlider.updateAutoHeight(1500);
+			// })
+			
 		}
 
 		/*
@@ -205,7 +208,7 @@ function initSliders() {
 		*/
 		if(document.querySelector('.swiper-partners')) {
 			let partnersSlider = new Swiper('.swiper-partners', {
-				modules: [Navigation, Scrollbar],
+				//: [Navigation, Scrollbar],
 				observer: true,
 				observeParents: true,
 				slidesPerView: 6,
@@ -250,7 +253,7 @@ function initSliders() {
 		*/
 		if(document.querySelector('.swiper-reviews')) {
 			let reviewsSlider = new Swiper('.swiper-reviews', {
-				modules: [Navigation],
+				//modules: [Navigation],
 				observer: true,
 				observeParents: true,
 				slidesPerView: 3,
@@ -294,7 +297,7 @@ function initSliders() {
 		*/
 		if(document.querySelector('.modal__slider')) {
 			new Swiper('.modal__slider', {
-				modules: [Navigation, Pagination],
+				//modules: [Navigation, Pagination],
 				observer: true,
 				observeParents: true,
 				slidesPerView: 1,

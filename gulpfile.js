@@ -30,7 +30,7 @@ const path = {
 		js: `${projectName}/js/`,
 		libs: `${projectName}/libs/`,
 		css: `${projectName}/css/`,
-		scss: `${projectName}/css/scss`,
+		scss: `${projectName}/css/`,
 		images: `${projectName}/img/`,
 		fonts: `${projectName}/fonts/`,
 		others: `${projectName}/others/`,
